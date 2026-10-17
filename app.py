@@ -15,6 +15,17 @@ st.caption("基于 MIMIC-IV 开发、eICU-CRD 外部验证的双库模型（land
            "　｜　外部验证 AUC 0.705（0.697–0.712），内部 0.768（0.754–0.782）")
 st.warning("⚠️ 本工具仅用于研究与方法学演示，**不得用于临床诊疗决策**。预测值不构成任何医疗建议。")
 
+# ---- 显示单位与模型内部尺度 ----
+# 手稿全稿按稿约「废除 dL」统一用 μmol/L；模型权重在 mg/dL 尺度上训练，
+# 故界面按 μmol/L 显示/输入，送入模型前除以 88.4 还原为 mg/dL（1 mg/dL = 88.4 μmol/L）。
+CR_CONV = 88.4                       # μmol/L ÷ 88.4 = mg/dL
+UNIT_OVERRIDE = {"cr_base": ("μmol/L", CR_CONV), "cr_delta": ("μmol/L", CR_CONV)}
+# 计数/评分类变量用整数步长，避免出现「年龄 68.24 岁」这类读数
+INT_LIKE = {"age", "sofa", "hr_post_max", "hr_delta", "rr_post_max", "sbp_post_min", "sbp_delta",
+            "k_post_max", "cl_post_min", "wbc_post_max", "hb_post_min", "hb_delta", "hct_delta",
+            "plt_delta", "rdw_post_max", "mcv_post_max", "mchc_post_max", "agap_post_max", "agap_delta",
+            "cr_base", "cr_delta"}
+
 GROUPS = {
     "人口学与疾病严重度": ["age", "sofa", "cr_base"],
     "基础疾病与治疗": ["chf", "ckd", "cva", "dm", "liver", "vent"],
@@ -40,10 +51,21 @@ with left:
                     if m.get("type") == "binary":
                         values[k] = 1 if st.checkbox("%s %s" % (label, unit), key=k) else 0
                     else:
-                        values[k] = st.number_input(
-                            "%s%s" % (label, unit), value=float(m.get("median", 0.0)),
-                            min_value=float(m.get("lo", 0.0)), max_value=float(m.get("hi", 1e6)),
-                            step=float(max((m.get("p95", 1) - m.get("p5", 0)) / 50.0, 0.01)), key=k)
+                        _u, _c = UNIT_OVERRIDE.get(k, (None, 1.0))
+                        if _u:
+                            unit = "（%s）" % _u
+                        _med = float(m.get("median", 0.0)) * _c
+                        _lo = float(m.get("lo", 0.0)) * _c
+                        _hi = float(m.get("hi", 1e6)) * _c
+                        if k in INT_LIKE:
+                            _step = 1.0
+                        else:
+                            _step = float(min(max((m.get("p95", 1) - m.get("p5", 0)) / 50.0, 0.01), 1.0))
+                        _v = st.number_input(
+                            "%s%s" % (label, unit), value=round(_med, 2),
+                            min_value=round(_lo, 2), max_value=round(_hi, 1),
+                            step=_step, key=k)
+                        values[k] = _v / _c if _c != 1.0 else _v
 
 with right:
     st.subheader("② 预测结果")
@@ -80,5 +102,5 @@ with st.expander("③ 模型性能摘要（详见论文）"):
 
 **风险分层（内部验证集，四分位观测 AKI 率）**：Q1 4.3% → Q2 10.0% → Q3 17.2% → Q4 37.8%
 """)
-st.caption("模型与阈值文件：model_artifact/best_model_xgb.pkl、feature_defaults.json　｜　"
+st.caption("模型与默认值文件：model_artifact/best_model_xgb.pkl、feature_defaults.json　｜　"
            "数据来自 MIMIC-IV 与 eICU-CRD（PhysioNet，需自行申请），本仓库不含任何患者数据。")

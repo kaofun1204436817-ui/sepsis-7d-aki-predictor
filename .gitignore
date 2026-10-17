@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .DS_Store
 analysis/outputs/
+*.bak_r*
+*.bak_*

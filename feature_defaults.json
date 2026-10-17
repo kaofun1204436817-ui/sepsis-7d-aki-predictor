@@ -92,7 +92,7 @@
       "hi": 150.0
     },
     "cr_base": {
-      "label": "基线肌酐(24h最低)",
+      "label": "基线肌酐（24 h 内最低值）",
       "unit": "mg/dL",
       "type": "continuous",
       "median": 0.9,
@@ -102,7 +102,7 @@
       "hi": 22.1
     },
     "cr_delta": {
-      "label": "肌酐变化幅度",
+      "label": "肌酐 24 h 变化幅度",
       "unit": "mg/dL",
       "type": "continuous",
       "median": 0.0,
@@ -112,7 +112,7 @@
       "hi": 15.0
     },
     "cr_ratio": {
-      "label": "肌酐峰值/基线比",
+      "label": "肌酐峰值／基线比",
       "unit": "倍",
       "type": "continuous",
       "median": 1.0,

@@ -90,6 +90,12 @@ export CN2_OUT=/path/to/outputs
 
 ### 3.1 在线工具
 
+在线演示（无需安装）：https://sepsis-7d-aki-predictor.streamlit.app
+
+> 仅供研究演示，不用于临床决策。若页面提示应用休眠，首次打开可能需要数十秒唤醒。
+
+本地运行：
+
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
