@@ -1,0 +1,295 @@
+{
+  "features": [
+    "agap_delta",
+    "agap_post_max",
+    "age",
+    "bun_cr_ratio",
+    "chf",
+    "ckd",
+    "cl_post_min",
+    "cr_base",
+    "cr_delta",
+    "cr_ratio",
+    "cva",
+    "dm",
+    "hb_delta",
+    "hb_post_min",
+    "hct_delta",
+    "hr_delta",
+    "hr_post_max",
+    "k_post_max",
+    "liver",
+    "mchc_post_max",
+    "mcv_post_max",
+    "plt_delta",
+    "rdw_post_max",
+    "rr_post_max",
+    "sbp_delta",
+    "sbp_rel_delta",
+    "sofa",
+    "vent",
+    "wbc_post_max"
+  ],
+  "meta": {
+    "agap_delta": {
+      "label": "阴离子间隙变化幅度",
+      "unit": "mmol/L",
+      "type": "continuous",
+      "median": 1.0,
+      "p5": 0.0,
+      "p95": 6.0,
+      "lo": -0.402,
+      "hi": 39.0
+    },
+    "agap_post_max": {
+      "label": "阴离子间隙最高",
+      "unit": "mmol/L",
+      "type": "continuous",
+      "median": 13.0,
+      "p5": 9.0,
+      "p95": 21.0,
+      "lo": -1.0,
+      "hi": 52.0
+    },
+    "age": {
+      "label": "年龄",
+      "unit": "岁",
+      "type": "continuous",
+      "median": 68.237,
+      "p5": 34.973,
+      "p95": 90.291,
+      "lo": 18.041,
+      "hi": 103.75
+    },
+    "bun_cr_ratio": {
+      "label": "BUN/Cr 比",
+      "unit": "比值",
+      "type": "continuous",
+      "median": 20.0,
+      "p5": 10.0,
+      "p95": 42.5,
+      "lo": 1.429,
+      "hi": 183.333
+    },
+    "chf": {
+      "label": "心力衰竭",
+      "unit": "",
+      "type": "binary"
+    },
+    "ckd": {
+      "label": "慢性肾病",
+      "unit": "",
+      "type": "binary"
+    },
+    "cl_post_min": {
+      "label": "氯最低",
+      "unit": "mmol/L",
+      "type": "continuous",
+      "median": 104.0,
+      "p5": 94.0,
+      "p95": 113.0,
+      "lo": 70.0,
+      "hi": 150.0
+    },
+    "cr_base": {
+      "label": "基线肌酐(24h最低)",
+      "unit": "mg/dL",
+      "type": "continuous",
+      "median": 0.9,
+      "p5": 0.5,
+      "p95": 3.2,
+      "lo": 0.1,
+      "hi": 22.1
+    },
+    "cr_delta": {
+      "label": "肌酐变化幅度",
+      "unit": "mg/dL",
+      "type": "continuous",
+      "median": 0.0,
+      "p5": 0.0,
+      "p95": 0.3,
+      "lo": 0.0,
+      "hi": 15.0
+    },
+    "cr_ratio": {
+      "label": "肌酐峰值/基线比",
+      "unit": "倍",
+      "type": "continuous",
+      "median": 1.0,
+      "p5": 1.0,
+      "p95": 1.286,
+      "lo": 0.7,
+      "hi": 3.0
+    },
+    "cva": {
+      "label": "脑卒中",
+      "unit": "",
+      "type": "binary"
+    },
+    "dm": {
+      "label": "糖尿病",
+      "unit": "",
+      "type": "binary"
+    },
+    "hb_delta": {
+      "label": "血红蛋白变化幅度",
+      "unit": "g/dL",
+      "type": "continuous",
+      "median": 0.1,
+      "p5": 0.0,
+      "p95": 2.7,
+      "lo": -0.314,
+      "hi": 9.8
+    },
+    "hb_post_min": {
+      "label": "血红蛋白最低",
+      "unit": "g/dL",
+      "type": "continuous",
+      "median": 9.9,
+      "p5": 7.1,
+      "p95": 13.4,
+      "lo": 2.7,
+      "hi": 18.9
+    },
+    "hct_delta": {
+      "label": "红细胞压积变化幅度",
+      "unit": "%",
+      "type": "continuous",
+      "median": 1.1,
+      "p5": 0.0,
+      "p95": 8.6,
+      "lo": -0.38,
+      "hi": 28.1
+    },
+    "hr_delta": {
+      "label": "心率变化幅度",
+      "unit": "次/min",
+      "type": "continuous",
+      "median": 28.0,
+      "p5": 12.0,
+      "p95": 60.0,
+      "lo": 0.0,
+      "hi": 203.0
+    },
+    "hr_post_max": {
+      "label": "心率最高",
+      "unit": "次/min",
+      "type": "continuous",
+      "median": 100.0,
+      "p5": 75.0,
+      "p95": 138.0,
+      "lo": 37.0,
+      "hi": 280.0
+    },
+    "k_post_max": {
+      "label": "钾最高",
+      "unit": "mmol/L",
+      "type": "continuous",
+      "median": 4.3,
+      "p5": 3.5,
+      "p95": 5.4,
+      "lo": 2.1,
+      "hi": 11.1
+    },
+    "liver": {
+      "label": "肝病",
+      "unit": "",
+      "type": "binary"
+    },
+    "mchc_post_max": {
+      "label": "MCHC 最高",
+      "unit": "g/dL",
+      "type": "continuous",
+      "median": 33.3,
+      "p5": 30.4,
+      "p95": 35.9,
+      "lo": 13.6,
+      "hi": 70.4
+    },
+    "mcv_post_max": {
+      "label": "MCV 最高",
+      "unit": "fL",
+      "type": "continuous",
+      "median": 91.0,
+      "p5": 81.0,
+      "p95": 103.0,
+      "lo": 54.0,
+      "hi": 150.0
+    },
+    "plt_delta": {
+      "label": "血小板变化幅度",
+      "unit": "×10⁹/L",
+      "type": "continuous",
+      "median": 3.0,
+      "p5": 0.0,
+      "p95": 66.0,
+      "lo": -2.686,
+      "hi": 428.0
+    },
+    "rdw_post_max": {
+      "label": "RDW 最高",
+      "unit": "%",
+      "type": "continuous",
+      "median": 14.6,
+      "p5": 12.5,
+      "p95": 19.7,
+      "lo": 11.1,
+      "hi": 31.9
+    },
+    "rr_post_max": {
+      "label": "呼吸频率最高",
+      "unit": "次/min",
+      "type": "continuous",
+      "median": 27.0,
+      "p5": 20.0,
+      "p95": 39.0,
+      "lo": 10.0,
+      "hi": 69.0
+    },
+    "sbp_delta": {
+      "label": "收缩压变化幅度",
+      "unit": "mmHg",
+      "type": "continuous",
+      "median": 50.0,
+      "p5": 26.0,
+      "p95": 91.0,
+      "lo": 0.0,
+      "hi": 266.0
+    },
+    "sbp_rel_delta": {
+      "label": "收缩压相对波动",
+      "unit": "比值",
+      "type": "continuous",
+      "median": 0.354,
+      "p5": 0.209,
+      "p95": 0.549,
+      "lo": 0.0,
+      "hi": 0.999
+    },
+    "sofa": {
+      "label": "SOFA 评分",
+      "unit": "分",
+      "type": "continuous",
+      "median": 5.0,
+      "p5": 2.0,
+      "p95": 11.0,
+      "lo": 2.0,
+      "hi": 22.0
+    },
+    "vent": {
+      "label": "机械通气",
+      "unit": "1=有/0=无",
+      "type": "binary"
+    },
+    "wbc_post_max": {
+      "label": "WBC 最高",
+      "unit": "×10⁹/L",
+      "type": "continuous",
+      "median": 12.3,
+      "p5": 4.9,
+      "p95": 26.0,
+      "lo": 0.1,
+      "hi": 468.2
+    }
+  }
+}
